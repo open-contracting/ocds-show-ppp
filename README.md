@@ -1,6 +1,6 @@
 # OCDS Show for PPPs
 
-A tool for displaying OCDS releases and records, with support for the [PPP profile](http://standard.open-contracting.org/profiles/ppp/latest/en/) of OCDS.
+A tool for displaying OCDS releases and records, with support for the [PPP profile](https://standard.open-contracting.org/profiles/ppp/latest/en/) of OCDS.
 
 ## This repository
 
