@@ -1,10 +1,10 @@
-var NOT_FLATTEN_KEYS = ['additionalIdentifiers', 
-                        'additionalClassifications',
-                        'suppliers',
-                        'changes',
-                        'tenderers'
-                       ]
-
+var NOT_FLATTEN_KEYS = [
+  'additionalIdentifiers',
+  'additionalClassifications',
+  'suppliers',
+  'changes',
+  'tenderers'
+]
 
 function flatten(obj) {
   var flattened = {};
@@ -171,6 +171,9 @@ function get_changes(old_flat, new_flat) {
 
 function augment_path(obj) {
   var traverse_object = function(path, obj) {
+    if (path.length > 0 && path[path.length -1] === '__extra') {
+      return
+    }
     obj["__path"] = JSON.stringify(path);
     Object.keys(obj).forEach(function (key){
       var value = obj[key];
@@ -178,11 +181,11 @@ function augment_path(obj) {
         if (Array.isArray(value)) {
           if (typeof(value[0]) === 'object' ){
             traverse_array(path.concat(key), value);
-          } 
+          }
         } else {
           traverse_object(path.concat(key), value);
         }
-      } 
+      }
     });
   }
   var traverse_array = function(path, obj) {
@@ -196,4 +199,10 @@ function augment_path(obj) {
   };
   traverse_object([], obj);
   return obj;
+}
+
+if (typeof window === 'undefined') {
+  exports.flatten_all = flatten_all;
+  exports.get_changes = get_changes;
+  exports.augment_path = augment_path;
 }

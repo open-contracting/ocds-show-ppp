@@ -5,7 +5,7 @@ var program = require('commander');
 var fs = require('fs');
 var watch = require('watch');
 var path = require('path');
- 
+
 program
   .option('-w --watch')
   .option('-i --i18n')
@@ -21,18 +21,18 @@ var translation_object = {
     "content-type": "text/plain; charset=utf-9",
   },
   "translations": {
-     "" : translations
+    "" : translations
   }
 }
 
 var opts = {"include": ['\\.html$', '\\.jinja$']}
 nunjucks.compiler.Compiler.prototype.originalFunCall = nunjucks.compiler.Compiler.prototype.compileFunCall
 
-   
+
 
 var newFunCall = function(node, frame) {
   if (node.name.value == 'gettext') {
-    translations[node.args.children[0].value] = {"msgid": node.args.children[0].value, "msgstr": [""], 
+    translations[node.args.children[0].value] = {"msgid": node.args.children[0].value, "msgstr": [""],
       "comments": {"reference": this.templateName + " (lineno " + node.args.children[0].lineno + ", colno " + node.args.children[0].colno + ")"}
     }
   }
@@ -41,7 +41,7 @@ var newFunCall = function(node, frame) {
 
 nunjucks.compiler.Compiler.prototype.compileFunCall = newFunCall
 
-fs.writeFile(path.join(__dirname, 'templates.js'), nunjucks.precompile(template_folder, opts))
+fs.writeFile(path.join(__dirname, 'templates.js'), nunjucks.precompile(template_folder, opts), function(){})
 
 //console.log(translation_object)
 //console.log(translations)
@@ -69,7 +69,7 @@ if (program.i18n) {
 }
 
 if (program.watch) {
-   watch.watchTree(template_folder, {'interval': 0.1}, function (f, curr, prev) {
-     fs.writeFile(path.join(__dirname, 'templates.js'), nunjucks.precompile(template_folder, opts))
-   })
+  watch.watchTree(template_folder, {'interval': 0.1}, function (f, curr, prev) {
+    fs.writeFile(path.join(__dirname, 'templates.js'), nunjucks.precompile(template_folder, opts), function(){})
+  })
 }

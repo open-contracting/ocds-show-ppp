@@ -36,8 +36,7 @@ QUnit.test( "Test Flatten All", function( assert ) {
     "[\"list_obj_4\",[2],\"nested\"]": "changed",
     "[\"list_obj_4\",[2]]": "changed",
     "[\"list_obj_4\"]": "changed",
-    "[\"list_obj_new\"]": "new",
-    "[\"list_string\"]": "changed"
+    "[\"list_obj_new\"]": "new"
   }
   assert.deepEqual(result, expected_result)
 });
@@ -54,7 +53,7 @@ QUnit.test( "Test Augment Path", function( assert ) {
     "list_obj_new": [{"id": 1, "nested": "nested_value"}],
     "list_string": ["a", "b", "c"],
   }
-  var expected = 
+  var expected =
     {
   "__path": "[]",
   "key": "value",
