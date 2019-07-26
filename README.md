@@ -2,12 +2,27 @@
 
 A tool for displaying [OCDS for PPPs](https://standard.open-contracting.org/profiles/ppp/) releases and records.
 
-## Development
+## Maintenance
 
 This repository should be the same as [OCDS Show](https://github.com/open-contracting/ocds-show), except for:
 
 * `css/custom.css`: `#release-tabs .tab-pane` background-color. Uncommented styles.
 * `index.html`: Change "OCDS Show" to "OCDS Show for Public Private Partnerships", "Input a valid OCDS record/release" to "Input a valid OCDS for PPPs record/release", `record_release.html` to `record_release_ppp.html`, `release.html` to `release_ppp.html`. Uncomment social witness code.
+
+If you run (assuming you have a local copy of the `ocds-show` repository in a parallel directory):
+
+```shell
+diff -q --exclude=.git --exclude=node_modules --exclude=package-lock.json --exclude=README.md -ru ../ocds-show .
+```
+
+It should only return:
+
+```
+Files ../ocds-show/css/custom.css and ./css/custom.css differ
+Files ../ocds-show/index.html and ./index.html differ
+```
+
+If you remove the `-q` option, there should only the differences above.
 
 ## Issues
 
