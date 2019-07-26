@@ -7,7 +7,6 @@ A tool for displaying [OCDS for PPPs](https://standard.open-contracting.org/prof
 This repository should be the same as [OCDS Show](https://github.com/open-contracting/ocds-show), except for:
 
 * `css/custom.css`: `#release-tabs .tab-pane` background-color. Uncommented styles.
-* `example/release_input.html`: Change: `release.html` to `release_ppp.html`.
 * `index.html`: Change "OCDS Show" to "OCDS Show for Public Private Partnerships", "Input a valid OCDS record/release" to "Input a valid OCDS for PPPs record/release", `record_release.html` to `record_release_ppp.html`, `release.html` to `release_ppp.html`. Uncomment social witness code.
 
 ## Issues
