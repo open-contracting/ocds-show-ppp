@@ -1,6 +1,10 @@
-# OCDS Show for PPPs
+# OCDS Show for Public Private Partnerships
 
-A tool for displaying [OCDS for PPPs](https://standard.open-contracting.org/profiles/ppp/) releases and records.
+A tool for displaying OCDS releases and records, that conform to the [OCDS for Public Private Partnerships](https://standard.open-contracting.org/profiles/ppp/) profile. [Try it now!](https://open-contracting.github.io/ocds-show-ppp/)
+
+The OCDS for PPPs profile makes major changes to the OCDS schema; this tool is a tailored version of [OCDS Show](https://github.com/open-contracting/ocds-show), which works with OCDS data in general, to take those changes into account.
+
+For complete documentation of this tool, visit [OCDS Show](https://github.com/open-contracting/ocds-show)'s repository.
 
 ## Maintenance
 
