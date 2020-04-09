@@ -26,7 +26,7 @@ Files ../ocds-show/css/custom.css and ./css/custom.css differ
 Files ../ocds-show/index.html and ./index.html differ
 ```
 
-If you remove the `-q` option, there should only the differences above.
+If you remove the `-q` option, there should only be the differences above.
 
 ## Issues
 
